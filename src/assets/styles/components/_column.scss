@@ -1,0 +1,17 @@
+.column {
+  background-color: #f4f4f4;
+  padding: 16px;
+  border-radius: 10px;
+  width: 100%;
+  min-height: auto;
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    text-align: center;
+    margin-bottom: 16px;
+    color: #333;
+  }
+}

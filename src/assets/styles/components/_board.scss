@@ -1,0 +1,4 @@
+.board { padding: 20px; } 
+.columns { display: flex; flex-direction: column; gap: 20px; } 
+@media(min-width: 768px)
+{ .columns{flex-direction:row;} }
