@@ -3,7 +3,7 @@ import React from 'react';
 import TaskCard from './TaskCard';
 import '../assets/styles/components/_column.scss';
 
-const Column = ({ name, tasks, onDrop, onDragStart, deleteTask, updateTask, toggleCheck }) => {
+const Column = ({ name, tasks, onDrop, onDragStart, deleteTask, updateTask, toggleCheck,moveTask }) => {
   return (
     <div
       className="column"
@@ -20,6 +20,7 @@ const Column = ({ name, tasks, onDrop, onDragStart, deleteTask, updateTask, togg
           deleteTask={deleteTask}
           updateTask={updateTask}
           toggleCheck={toggleCheck}
+          moveTask={moveTask}
         />
       ))}
     </div>

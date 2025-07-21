@@ -55,6 +55,23 @@ const Board = () => {
     }));
   };
 
+  const moveTask = (sourceColumn, targetColumn, taskId) => {
+    if (sourceColumn === targetColumn) return;
+    const taskToMove = tasks[sourceColumn].find((t) => t.id === taskId);
+    if (!taskToMove) return;
+
+    setTasks((prev) => {
+    const updatedSource = prev[sourceColumn].filter((t) => t.id !== taskId);
+    const updatedTarget = [...prev[targetColumn], taskToMove];
+    return {
+      ...prev,
+      [sourceColumn]: updatedSource,
+      [targetColumn]: updatedTarget,
+    };
+    });
+  };
+
+
   const onDragStart = (e, taskId, sourceColumn) => {
     e.dataTransfer.setData('taskId', taskId);
     e.dataTransfer.setData('sourceColumn', sourceColumn);
@@ -94,7 +111,9 @@ const Board = () => {
             deleteTask={deleteTask}
             updateTask={updateTask}
             toggleCheck={toggleCheck}
+            moveTask={moveTask}
           />
+
         ))}
       </div>
     </div>
