@@ -5,7 +5,7 @@ import Board from './components/Board';
 const App = () => {
   return (
     <div className="app">
-      <h1 className="board-title">Kanban Board</h1>
+      <h1 className="app__title">Kanban Board</h1>
       <Board />
     </div>
   );

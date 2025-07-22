@@ -1,3 +1,4 @@
+// TaskCard.jsx
 import React, { useState } from 'react';
 import '../assets/styles/components/_task-card.scss';
 
@@ -24,88 +25,51 @@ const TaskCard = ({ task, column, onDragStart, deleteTask, updateTask, toggleChe
       draggable
       onDragStart={(e) => onDragStart(e, task.id, column)}
     >
-      {/* <input
-        type="checkbox"
-        checked={task.checked}
-        onChange={() => toggleCheck(column, task.id)}
-      /> */}
       {isEditing ? (
-        <>
+        <div className="task-card__edit">
           <input
             type="text"
+            className="task-card__input"
             value={editedContent}
             onChange={(e) => setEditedContent(e.target.value)}
           />
-          <button onClick={handleSave}>Save</button>
-        </>
+          <button className="task-card__save-btn" onClick={handleSave}>Save</button>
+        </div>
       ) : (
-        <>
-          <span className={task.checked ? 'checked' : ''}>{task.content}</span>
-          <button onClick={() => setIsEditing(true)}>Edit</button>
-        </>
-      )}
-      <button className="delete-btn" onClick={() => deleteTask(column, task.id)}>Delete</button>
+        <div className="task-card__top">
+          <span className={`task-card__text ${task.checked ? 'task-card__text--checked' : ''}`}>
+            {task.content}
+          </span>
 
-      {/* ➕ 3-dot menu */}
-      <div className="task-menu">
-        <button className="menu-3dot" onClick={() => setShowMenu(!showMenu)}>⋮</button>
-        {showMenu && (
-          <ul className="task-menu-options">
-            {columns.map((targetCol) => (
-              <li key={targetCol} onClick={() => handleMove(targetCol)}>
-                Move to {targetCol}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+          <div className="task-card__actions">
+            <button className="task-card__edit-btn" onClick={() => setIsEditing(true)}>Edit</button>
+            <button className="task-card__delete-btn" onClick={() => deleteTask(column, task.id)}>Delete</button>
+            <div className="task-card__menu">
+              <button
+                className="task-card__menu-toggle"
+                onClick={() => setShowMenu(!showMenu)}
+              >
+                ⋮
+              </button>
+              {showMenu && (
+                <ul className="task-card__menu-options">
+                  {columns.map((targetCol) => (
+                    <li
+                      key={targetCol}
+                      className="task-card__menu-item"
+                      onClick={() => handleMove(targetCol)}
+                    >
+                      Move to {targetCol}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
 export default TaskCard;
-
-// import React, { useState } from 'react';
-// import '../assets/styles/components/_task-card.scss';
-
-// const TaskCard = ({ task, column, onDragStart, deleteTask, updateTask, toggleCheck }) => {
-//   const [isEditing, setIsEditing] = useState(false);
-//   const [editedContent, setEditedContent] = useState(task.content);
-
-//   const handleSave = () => {
-//     updateTask(column, task.id, editedContent);
-//     setIsEditing(false);
-//   };
-
-//   return (
-//     <div
-//       className="task-card"
-//       draggable
-//       onDragStart={(e) => onDragStart(e, task.id, column)}
-//     >
-//       <input
-//         type="checkbox"
-//         checked={task.checked}
-//         onChange={() => toggleCheck(column, task.id)}
-//       />
-//       {isEditing ? (
-//         <>
-//           <input
-//             type="text"
-//             value={editedContent}
-//             onChange={(e) => setEditedContent(e.target.value)}
-//           />
-//           <button onClick={handleSave}>Save</button>
-//         </>
-//       ) : (
-//         <>
-//           <span className={task.checked ? 'checked' : ''}>{task.content}</span>
-//           <button onClick={() => setIsEditing(true)}>Edit</button>
-//         </>
-//       )}
-//       <button onClick={() => deleteTask(column, task.id)}>Delete</button>
-//     </div>
-//   );
-// };
-
-// export default TaskCard;

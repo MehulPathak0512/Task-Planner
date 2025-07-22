@@ -1,28 +1,29 @@
-
 import React from 'react';
 import TaskCard from './TaskCard';
 import '../assets/styles/components/_column.scss';
 
-const Column = ({ name, tasks, onDrop, onDragStart, deleteTask, updateTask, toggleCheck,moveTask }) => {
+const Column = ({ name, tasks, onDrop, onDragStart, deleteTask, updateTask, toggleCheck, moveTask }) => {
   return (
     <div
       className="column"
       onDragOver={(e) => e.preventDefault()}
       onDrop={(e) => onDrop(e, name)}
     >
-      <h2>{name}</h2>
-      {tasks.map((task) => (
-        <TaskCard
-          key={task.id}
-          task={task}
-          column={name}
-          onDragStart={onDragStart}
-          deleteTask={deleteTask}
-          updateTask={updateTask}
-          toggleCheck={toggleCheck}
-          moveTask={moveTask}
-        />
-      ))}
+      <h2 className="column__title">{name}</h2>
+      <div className="column__tasks">
+        {tasks.map((task) => (
+          <TaskCard
+            key={task.id}
+            task={task}
+            column={name}
+            onDragStart={onDragStart}
+            deleteTask={deleteTask}
+            updateTask={updateTask}
+            toggleCheck={toggleCheck}
+            moveTask={moveTask}
+          />
+        ))}
+      </div>
     </div>
   );
 };

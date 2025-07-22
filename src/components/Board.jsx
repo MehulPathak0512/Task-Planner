@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import Column from './Column';
 import AddTaskForm from './AddTaskForm';
@@ -61,16 +60,15 @@ const Board = () => {
     if (!taskToMove) return;
 
     setTasks((prev) => {
-    const updatedSource = prev[sourceColumn].filter((t) => t.id !== taskId);
-    const updatedTarget = [...prev[targetColumn], taskToMove];
-    return {
-      ...prev,
-      [sourceColumn]: updatedSource,
-      [targetColumn]: updatedTarget,
-    };
+      const updatedSource = prev[sourceColumn].filter((t) => t.id !== taskId);
+      const updatedTarget = [...prev[targetColumn], taskToMove];
+      return {
+        ...prev,
+        [sourceColumn]: updatedSource,
+        [targetColumn]: updatedTarget,
+      };
     });
   };
-
 
   const onDragStart = (e, taskId, sourceColumn) => {
     e.dataTransfer.setData('taskId', taskId);
@@ -113,7 +111,6 @@ const Board = () => {
             toggleCheck={toggleCheck}
             moveTask={moveTask}
           />
-
         ))}
       </div>
     </div>
