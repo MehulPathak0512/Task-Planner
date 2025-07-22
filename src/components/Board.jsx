@@ -98,7 +98,7 @@ const Board = () => {
   return (
     <div className="board">
       <AddTaskForm addTask={addTask} />
-      <div className="columns">
+      <div className="board__columns">
         {Object.keys(tasks).map((colName) => (
           <Column
             key={colName}
