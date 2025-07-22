@@ -1,13 +1,13 @@
 .board {
   padding: 20px;
+}
 
-  &__columns {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.columns {
+  display: flex;
+  flex-direction: column;
 
-    @media (min-width: 768px) {
-      flex-direction: row;
-    }
+  @media (min-width: 768px) {
+    flex-direction: row;
   }
 }
+
