@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import '../assets/styles/components/_add-task-form.scss';
+import './_add-task-form.scss';
+
 
 const AddTaskForm = ({ addTask }) => {
   const [task, setTask] = useState('');

@@ -1,6 +1,6 @@
 // TaskCard.jsx
 import React, { useState } from 'react';
-import '../assets/styles/components/_task-card.scss';
+import './_task-card.scss';
 
 const TaskCard = ({ task, column, onDragStart, deleteTask, updateTask, toggleCheck, moveTask }) => {
   const [isEditing, setIsEditing] = useState(false);

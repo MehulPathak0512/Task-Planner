@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Column from './Column';
-import AddTaskForm from './AddTaskForm';
-import { saveToLocalStorage, loadFromLocalStorage } from '../utils/localStorageUtils';
-import '../assets/styles/components/_board.scss';
+import Column from '../Column/Column';
+import AddTaskForm from '../AddTaskForm/AddTaskForm';
+import { saveToLocalStorage, loadFromLocalStorage } from '../../utils/localStorageUtils.js';
+import './_board.scss';
 
 const initialData = {
   'To Do': [],

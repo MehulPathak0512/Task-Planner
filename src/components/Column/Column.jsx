@@ -1,6 +1,6 @@
 import React from 'react';
-import TaskCard from './TaskCard';
-import '../assets/styles/components/_column.scss';
+import TaskCard from '../TaskCard/TaskCard';
+import './_column.scss';
 
 const Column = ({ name, tasks, onDrop, onDragStart, deleteTask, updateTask, toggleCheck, moveTask }) => {
   return (

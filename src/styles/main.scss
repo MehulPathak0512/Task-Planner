@@ -1,0 +1,7 @@
+@import 'abstracts/variables';
+@import 'base/reset';
+@import 'base/typography';
+@import "../components/AddTaskForm/add-task-form";
+@import "../components/Board/board";
+@import "../components/Column/column";
+@import "../components/TaskCard/task-card";
